@@ -33,14 +33,15 @@ def clean_data(content):
     
     return df
 
-def create_mysql_connection(host, user, password, database):
+def create_mysql_connection(host, user, password, database, port):
     """Crée une connexion MySQL."""
     try:
         connection = mysql.connector.connect(
             host=host,
             user=user,
             password=password,
-            database=database
+            database=database,
+            port = port
         )
         return connection
     except Error as e:
@@ -111,6 +112,7 @@ def main():
     parser.add_argument('--db_password', type=str, required=True, help='Mot de passe MySQL')
     parser.add_argument('--endpoint-url', type=str, default='http://localhost:4566',
                         help='URL du endpoint S3 (LocalStack)')
+    parser.add_argument('--db_port', type=str, required=True, help='Port MySQL')
     
     args = parser.parse_args()
     
@@ -130,7 +132,8 @@ def main():
         args.db_host,
         args.db_user,
         args.db_password,
-        'staging'
+        'staging',
+        args.db_port
     )
     if connection is None:
         return

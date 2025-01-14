@@ -1086,3 +1086,35 @@ Please take a look at these docs to improve your DAG import time:
 [2025-01-14T18:27:53.580+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:27:53.579+0000] {dag.py:2915} INFO - Sync 1 DAGs
 [2025-01-14T18:27:53.660+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:27:53.659+0000] {dag.py:3696} INFO - Setting next_dagrun for data_lake_pipeline to 2025-01-14T00:00:00+00:00, run_after=2025-01-15T00:00:00+00:00
 [2025-01-14T18:27:53.726+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_lake_pipeline.py took 3.312 seconds
+[2025-01-14T18:28:24.048+0000] {processor.py:157} INFO - Started process (PID=497) to work on /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:28:24.051+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_lake_pipeline.py for tasks to queue
+[2025-01-14T18:28:24.053+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:28:24.053+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:28:25.026+0000] {logging_mixin.py:151} WARNING - None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[2025-01-14T18:28:25.279+0000] {processor.py:839} INFO - DAG(s) dict_keys(['data_lake_pipeline']) retrieved from /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:28:25.363+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:28:25.362+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-01-14T18:28:25.652+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:28:25.651+0000] {dag.py:3696} INFO - Setting next_dagrun for data_lake_pipeline to 2025-01-14T00:00:00+00:00, run_after=2025-01-15T00:00:00+00:00
+[2025-01-14T18:28:25.691+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_lake_pipeline.py took 1.653 seconds
+[2025-01-14T18:28:55.918+0000] {processor.py:157} INFO - Started process (PID=505) to work on /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:28:55.920+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_lake_pipeline.py for tasks to queue
+[2025-01-14T18:28:55.921+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:28:55.921+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:28:56.484+0000] {logging_mixin.py:151} WARNING - None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[2025-01-14T18:28:56.589+0000] {processor.py:839} INFO - DAG(s) dict_keys(['data_lake_pipeline']) retrieved from /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:28:56.627+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:28:56.627+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-01-14T18:28:56.831+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:28:56.831+0000] {dag.py:3696} INFO - Setting next_dagrun for data_lake_pipeline to 2025-01-14T00:00:00+00:00, run_after=2025-01-15T00:00:00+00:00
+[2025-01-14T18:28:56.860+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_lake_pipeline.py took 0.949 seconds
+[2025-01-14T18:29:27.122+0000] {processor.py:157} INFO - Started process (PID=513) to work on /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:29:27.123+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_lake_pipeline.py for tasks to queue
+[2025-01-14T18:29:27.125+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:29:27.124+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:29:27.818+0000] {logging_mixin.py:151} WARNING - None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[2025-01-14T18:29:27.960+0000] {processor.py:839} INFO - DAG(s) dict_keys(['data_lake_pipeline']) retrieved from /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:29:28.217+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:29:28.217+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-01-14T18:29:28.266+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:29:28.265+0000] {dag.py:3696} INFO - Setting next_dagrun for data_lake_pipeline to 2025-01-14T00:00:00+00:00, run_after=2025-01-15T00:00:00+00:00
+[2025-01-14T18:29:28.304+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_lake_pipeline.py took 1.187 seconds
+[2025-01-14T18:29:58.524+0000] {processor.py:157} INFO - Started process (PID=521) to work on /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:29:58.526+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/data_lake_pipeline.py for tasks to queue
+[2025-01-14T18:29:58.527+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:29:58.527+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:29:59.106+0000] {logging_mixin.py:151} WARNING - None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[2025-01-14T18:29:59.225+0000] {processor.py:839} INFO - DAG(s) dict_keys(['data_lake_pipeline']) retrieved from /opt/airflow/dags/data_lake_pipeline.py
+[2025-01-14T18:29:59.442+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:29:59.441+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-01-14T18:29:59.476+0000] {logging_mixin.py:151} INFO - [2025-01-14T18:29:59.475+0000] {dag.py:3696} INFO - Setting next_dagrun for data_lake_pipeline to 2025-01-14T00:00:00+00:00, run_after=2025-01-15T00:00:00+00:00
+[2025-01-14T18:29:59.502+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/data_lake_pipeline.py took 0.982 seconds

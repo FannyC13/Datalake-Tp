@@ -6,14 +6,15 @@ from transformers import GPT2Tokenizer
 import pandas as pd
 from tqdm import tqdm
 
-def get_mysql_data(host, user, password, database):
+def get_mysql_data(host, user, password, database, port):
     """Récupère les données depuis MySQL."""
     try:
         connection = mysql.connector.connect(
             host=host,
             user=user,
             password=password,
-            database=database
+            database=database,
+            port = port
         )
         
         query = "SELECT id, text FROM texts"
@@ -85,6 +86,7 @@ def main():
     parser.add_argument('--mysql_password', type=str, default='root', help='Mot de passe MySQL')
     parser.add_argument('--mongo_uri', type=str, default='mongodb://localhost:27017/', 
                         help='URI MongoDB')
+    parser.add_argument('--mysql_port', type=str, default='root', help='Port MySQL')
     
     args = parser.parse_args()
     
@@ -94,7 +96,8 @@ def main():
         args.mysql_host,
         args.mysql_user,
         args.mysql_password,
-        'staging'
+        'staging',
+        args.mysql_port
     )
     
     if df is None or df.empty:

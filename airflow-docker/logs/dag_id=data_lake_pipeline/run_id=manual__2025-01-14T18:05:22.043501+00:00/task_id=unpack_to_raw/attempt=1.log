@@ -1,0 +1,22 @@
+[2025-01-14T18:05:27.732+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_lake_pipeline.unpack_to_raw manual__2025-01-14T18:05:22.043501+00:00 [queued]>
+[2025-01-14T18:05:27.762+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_lake_pipeline.unpack_to_raw manual__2025-01-14T18:05:22.043501+00:00 [queued]>
+[2025-01-14T18:05:27.763+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-01-14T18:05:27.815+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): unpack_to_raw> on 2025-01-14 18:05:22.043501+00:00
+[2025-01-14T18:05:27.831+0000] {standard_task_runner.py:57} INFO - Started process 910 to run task
+[2025-01-14T18:05:27.848+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'data_lake_pipeline', 'unpack_to_raw', 'manual__2025-01-14T18:05:22.043501+00:00', '--job-id', '45', '--raw', '--subdir', 'DAGS_FOLDER/data_lake_pipeline.py', '--cfg-path', '/tmp/tmpp22vpum3']
+[2025-01-14T18:05:27.873+0000] {standard_task_runner.py:85} INFO - Job 45: Subtask unpack_to_raw
+[2025-01-14T18:05:27.969+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-01-14T18:05:28.147+0000] {task_command.py:415} INFO - Running <TaskInstance: data_lake_pipeline.unpack_to_raw manual__2025-01-14T18:05:22.043501+00:00 [running]> on host 18b754b87e66
+[2025-01-14T18:05:28.480+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='data_lake_pipeline' AIRFLOW_CTX_TASK_ID='unpack_to_raw' AIRFLOW_CTX_EXECUTION_DATE='2025-01-14T18:05:22.043501+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-14T18:05:22.043501+00:00'
+[2025-01-14T18:05:28.483+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-01-14T18:05:28.486+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/build/unpack_to_raw.py --output-dir /opt/***/data/raw --endpoint-url http://localstack:4566']
+[2025-01-14T18:05:28.511+0000] {subprocess.py:86} INFO - Output:
+[2025-01-14T18:05:45.414+0000] {subprocess.py:93} INFO - Téléchargement des données...
+[2025-01-14T18:05:45.415+0000] {subprocess.py:93} INFO - Données téléchargées et organisées.
+[2025-01-14T18:05:45.415+0000] {subprocess.py:93} INFO - Combinaison et téléversement des fichiers...
+[2025-01-14T18:05:45.415+0000] {subprocess.py:93} INFO - Erreur lors du téléversement : Unable to locate credentials
+[2025-01-14T18:05:45.416+0000] {subprocess.py:93} INFO - Traitement terminé.
+[2025-01-14T18:05:46.096+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-01-14T18:05:46.174+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=data_lake_pipeline, task_id=unpack_to_raw, execution_date=20250114T180522, start_date=20250114T180527, end_date=20250114T180546
+[2025-01-14T18:05:46.257+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-01-14T18:05:46.337+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

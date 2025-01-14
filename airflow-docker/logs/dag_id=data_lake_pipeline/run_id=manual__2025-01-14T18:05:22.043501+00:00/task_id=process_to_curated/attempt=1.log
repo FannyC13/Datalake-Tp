@@ -1,0 +1,21 @@
+[2025-01-14T18:05:56.915+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_lake_pipeline.process_to_curated manual__2025-01-14T18:05:22.043501+00:00 [queued]>
+[2025-01-14T18:05:56.932+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_lake_pipeline.process_to_curated manual__2025-01-14T18:05:22.043501+00:00 [queued]>
+[2025-01-14T18:05:56.933+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-01-14T18:05:56.961+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): process_to_curated> on 2025-01-14 18:05:22.043501+00:00
+[2025-01-14T18:05:56.972+0000] {standard_task_runner.py:57} INFO - Started process 996 to run task
+[2025-01-14T18:05:56.979+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'data_lake_pipeline', 'process_to_curated', 'manual__2025-01-14T18:05:22.043501+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/data_lake_pipeline.py', '--cfg-path', '/tmp/tmp2_b3o3bm']
+[2025-01-14T18:05:56.985+0000] {standard_task_runner.py:85} INFO - Job 47: Subtask process_to_curated
+[2025-01-14T18:05:57.016+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-01-14T18:05:57.084+0000] {task_command.py:415} INFO - Running <TaskInstance: data_lake_pipeline.process_to_curated manual__2025-01-14T18:05:22.043501+00:00 [running]> on host 18b754b87e66
+[2025-01-14T18:05:57.285+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='data_lake_pipeline' AIRFLOW_CTX_TASK_ID='process_to_curated' AIRFLOW_CTX_EXECUTION_DATE='2025-01-14T18:05:22.043501+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-14T18:05:22.043501+00:00'
+[2025-01-14T18:05:57.290+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-01-14T18:05:57.292+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/scripts/process_to_curated.py --mysql_host mysql --mysql_user root --mysql_password root --mongo_uri mongodb://mongodb:27017/ --mysql_port 3307']
+[2025-01-14T18:05:57.321+0000] {subprocess.py:86} INFO - Output:
+[2025-01-14T18:05:59.539+0000] {subprocess.py:93} INFO - None of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[2025-01-14T18:06:00.438+0000] {subprocess.py:93} INFO - Récupération des données depuis MySQL...
+[2025-01-14T18:06:00.439+0000] {subprocess.py:93} INFO - Erreur lors de la récupération des données MySQL: 2003 (HY000): Can't connect to MySQL server on 'mysql:3307' (111)
+[2025-01-14T18:06:00.439+0000] {subprocess.py:93} INFO - Aucune donnée récupérée depuis MySQL
+[2025-01-14T18:06:00.724+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-01-14T18:06:00.777+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=data_lake_pipeline, task_id=process_to_curated, execution_date=20250114T180522, start_date=20250114T180556, end_date=20250114T180600
+[2025-01-14T18:06:00.816+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-01-14T18:06:00.858+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

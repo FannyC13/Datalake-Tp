@@ -1,0 +1,134 @@
+[2025-01-14T17:47:39.680+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_lake_pipeline.unpack_to_raw scheduled__2025-01-07T00:00:00+00:00 [queued]>
+[2025-01-14T17:47:39.900+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_lake_pipeline.unpack_to_raw scheduled__2025-01-07T00:00:00+00:00 [queued]>
+[2025-01-14T17:47:39.902+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-01-14T17:47:40.160+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): unpack_to_raw> on 2025-01-07 00:00:00+00:00
+[2025-01-14T17:47:40.216+0000] {standard_task_runner.py:57} INFO - Started process 559 to run task
+[2025-01-14T17:47:40.779+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'data_lake_pipeline', 'unpack_to_raw', 'scheduled__2025-01-07T00:00:00+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/data_lake_pipeline.py', '--cfg-path', '/tmp/tmpxmas74aa']
+[2025-01-14T17:47:40.799+0000] {standard_task_runner.py:85} INFO - Job 29: Subtask unpack_to_raw
+[2025-01-14T17:47:41.007+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-01-14T17:47:41.669+0000] {task_command.py:415} INFO - Running <TaskInstance: data_lake_pipeline.unpack_to_raw scheduled__2025-01-07T00:00:00+00:00 [running]> on host e4e3ea62ec62
+[2025-01-14T17:47:43.054+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='data_lake_pipeline' AIRFLOW_CTX_TASK_ID='unpack_to_raw' AIRFLOW_CTX_EXECUTION_DATE='2025-01-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-07T00:00:00+00:00'
+[2025-01-14T17:47:43.083+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-01-14T17:47:43.100+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/build/unpack_to_raw.py --output-dir /opt/***/data/raw --endpoint-url http://localstack:4566']
+[2025-01-14T17:47:43.251+0000] {subprocess.py:86} INFO - Output:
+[2025-01-14T17:48:01.619+0000] {job.py:219} ERROR - Job heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "postgres" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/jobs/job.py", line 190, in heartbeat
+    session.merge(self)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 3056, in merge
+    return self._merge(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 3136, in _merge
+    merged = self.get(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2853, in get
+    return self._get_impl(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2975, in _get_impl
+    return db_load_fn(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/orm/loading.py", line 530, in load_on_pk_identity
+    session.execute(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1716, in execute
+    conn = self._connection_for_bind(bind)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1555, in _connection_for_bind
+    return self._transaction._connection_for_bind(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 750, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/future/engine.py", line 406, in connect
+    return super(Engine, self).connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3325, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3404, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3374, in _wrap_pool_connect
+    Connection._handle_dbapi_exception_noconnection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2208, in _handle_dbapi_exception_noconnection
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 3371, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 327, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 894, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 493, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/impl.py", line 256, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 273, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 388, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 691, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/pool/base.py", line 686, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/create.py", line 574, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 598, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "postgres" to address: Temporary failure in name resolution
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2025-01-14T17:50:33.382+0000] {subprocess.py:93} INFO - Téléchargement des données...
+[2025-01-14T17:50:33.613+0000] {subprocess.py:93} INFO - Données téléchargées et organisées.
+[2025-01-14T17:50:33.615+0000] {subprocess.py:93} INFO - Combinaison et téléversement des fichiers...
+[2025-01-14T17:50:33.615+0000] {subprocess.py:93} INFO - Erreur lors du téléversement : [Errno 2] No such file or directory: '/opt/***/data/raw/wikitext-2-combined.txt'
+[2025-01-14T17:50:33.647+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-01-14T17:50:33.648+0000] {subprocess.py:93} INFO -   File "/opt/***/build/unpack_to_raw.py", line 78, in <module>
+[2025-01-14T17:50:33.649+0000] {subprocess.py:93} INFO -     main()
+[2025-01-14T17:50:33.649+0000] {subprocess.py:93} INFO -   File "/opt/***/build/unpack_to_raw.py", line 74, in main
+[2025-01-14T17:50:33.649+0000] {subprocess.py:93} INFO -     combine_and_upload(args.output_dir, args.endpoint_url)
+[2025-01-14T17:50:33.650+0000] {subprocess.py:93} INFO -   File "/opt/***/build/unpack_to_raw.py", line 58, in combine_and_upload
+[2025-01-14T17:50:33.650+0000] {subprocess.py:93} INFO -     os.remove(combined_file)
+[2025-01-14T17:50:33.650+0000] {subprocess.py:93} INFO - FileNotFoundError: [Errno 2] No such file or directory: '/opt/***/data/raw/wikitext-2-combined.txt'
+[2025-01-14T17:50:35.538+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-01-14T17:50:36.979+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-14T17:50:37.327+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=data_lake_pipeline, task_id=unpack_to_raw, execution_date=20250107T000000, start_date=20250114T174739, end_date=20250114T175037
+[2025-01-14T17:50:37.861+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 29 for task unpack_to_raw (Bash command failed. The command returned a non-zero exit code 1.; 559)
+[2025-01-14T17:50:38.002+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-01-14T17:50:38.756+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

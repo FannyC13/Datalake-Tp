@@ -1,0 +1,35 @@
+[2025-01-14T17:56:04.668+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_lake_pipeline.unpack_to_raw scheduled__2025-01-04T00:00:00+00:00 [queued]>
+[2025-01-14T17:56:04.747+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_lake_pipeline.unpack_to_raw scheduled__2025-01-04T00:00:00+00:00 [queued]>
+[2025-01-14T17:56:04.751+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-01-14T17:56:04.912+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): unpack_to_raw> on 2025-01-04 00:00:00+00:00
+[2025-01-14T17:56:05.100+0000] {standard_task_runner.py:57} INFO - Started process 298 to run task
+[2025-01-14T17:56:05.533+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'data_lake_pipeline', 'unpack_to_raw', 'scheduled__2025-01-04T00:00:00+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/data_lake_pipeline.py', '--cfg-path', '/tmp/tmp3mc1swxg']
+[2025-01-14T17:56:05.799+0000] {standard_task_runner.py:85} INFO - Job 37: Subtask unpack_to_raw
+[2025-01-14T17:56:06.902+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-01-14T17:56:08.832+0000] {task_command.py:415} INFO - Running <TaskInstance: data_lake_pipeline.unpack_to_raw scheduled__2025-01-04T00:00:00+00:00 [running]> on host 18b754b87e66
+[2025-01-14T17:56:11.400+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='data_lake_pipeline' AIRFLOW_CTX_TASK_ID='unpack_to_raw' AIRFLOW_CTX_EXECUTION_DATE='2025-01-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-04T00:00:00+00:00'
+[2025-01-14T17:56:11.479+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-01-14T17:56:11.509+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python /opt/***/build/unpack_to_raw.py --output-dir /opt/***/data/raw --endpoint-url http://localstack:4566']
+[2025-01-14T17:56:11.776+0000] {subprocess.py:86} INFO - Output:
+[2025-01-14T17:57:14.937+0000] {subprocess.py:93} INFO - Téléchargement des données...
+[2025-01-14T17:57:14.990+0000] {subprocess.py:93} INFO - Données téléchargées et organisées.
+[2025-01-14T17:57:14.991+0000] {subprocess.py:93} INFO - Combinaison et téléversement des fichiers...
+[2025-01-14T17:57:14.991+0000] {subprocess.py:93} INFO - Erreur lors du téléversement : Unable to locate credentials
+[2025-01-14T17:57:14.991+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-01-14T17:57:14.992+0000] {subprocess.py:93} INFO -   File "/opt/***/build/unpack_to_raw.py", line 78, in <module>
+[2025-01-14T17:57:14.994+0000] {subprocess.py:93} INFO -     main()
+[2025-01-14T17:57:14.995+0000] {subprocess.py:93} INFO -   File "/opt/***/build/unpack_to_raw.py", line 74, in main
+[2025-01-14T17:57:14.999+0000] {subprocess.py:93} INFO -     combine_and_upload(args.output_dir, args.endpoint_url)
+[2025-01-14T17:57:14.999+0000] {subprocess.py:93} INFO -   File "/opt/***/build/unpack_to_raw.py", line 58, in combine_and_upload
+[2025-01-14T17:57:15.001+0000] {subprocess.py:93} INFO -     os.remove(combined_file)
+[2025-01-14T17:57:15.002+0000] {subprocess.py:93} INFO - FileNotFoundError: [Errno 2] No such file or directory: '/opt/***/data/raw/wikitext-2-combined.txt'
+[2025-01-14T17:57:17.027+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-01-14T17:57:17.391+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-14T17:57:17.508+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=data_lake_pipeline, task_id=unpack_to_raw, execution_date=20250104T000000, start_date=20250114T175604, end_date=20250114T175717
+[2025-01-14T17:57:17.669+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 37 for task unpack_to_raw (Bash command failed. The command returned a non-zero exit code 1.; 298)
+[2025-01-14T17:57:17.788+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-01-14T17:57:18.025+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

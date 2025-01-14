@@ -4,3 +4,8 @@ env/
 .DS_Store
 .env
 .csv
+aws/
+airflow-docker/logs/
+raw/
+.dvc/
+logs/

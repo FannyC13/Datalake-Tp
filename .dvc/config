@@ -1,5 +1,5 @@
 [core]
     remote = localstack-s3
 ['remote "localstack-s3"']
-    url = s3://raw
+    url = s3://bucket-name
     endpointurl = http://localhost:4566

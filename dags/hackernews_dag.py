@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 
 default_args = {
     'owner': 'airflow',
-    'depends_on_past': True,
-    'start_date': datetime(2024, 1, 1),
+    'depends_on_past': False,
+    'start_date': datetime(2025, 1, 1),
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 1,
@@ -25,14 +25,14 @@ SCRIPTS_PATH = "/opt/airflow/scripts"
 # Tâche pour récupérer et sauvegarder les stories dans S3
 fetch_stories = BashOperator(
     task_id='fetch_stories',
-    bash_command=f'python {SCRIPTS_PATH}/hn_api.py --limit 50 --endpoint-url http://localstack:4566',
+    bash_command=f'python hackernews_extraction.py --limit 50 --endpoint-url http://localstack:4566',
     dag=dag,
 )
 
 # Tâche pour indexer dans Elasticsearch
 index_stories = BashOperator(
     task_id='index_stories',
-    bash_command=f'python {SCRIPTS_PATH}/es_handler.py --host elasticsearch --port 9200 --endpoint-url http://localstack:4566',
+    bash_command=f'python insert_hackernews.py --host elasticsearch --port 9200 --endpoint-url http://localstack:4566',
     dag=dag,
 )
 

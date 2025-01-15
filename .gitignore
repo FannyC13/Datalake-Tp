@@ -6,3 +6,5 @@ env/
 .csv
 aws/
 airflow-docker/logs
+raw/
+logs/

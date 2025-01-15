@@ -24,11 +24,25 @@ def download_wikitext(output_dir):
                 if item.strip():  # Éviter les lignes vides
                     f.write(item + '\n')
 
+def create_bucket_if_not_exists(s3_client, bucket_name):
+    """Crée le bucket si nécessaire."""
+    try:
+        buckets = s3_client.list_buckets()
+        if bucket_name not in [bucket['Name'] for bucket in buckets.get('Buckets', [])]:
+            s3_client.create_bucket(Bucket=bucket_name)
+            print(f"Bucket '{bucket_name}' créé avec succès.")
+        else:
+            print(f"Bucket '{bucket_name}' existe déjà.")
+    except Exception as e:
+        print(f"Erreur lors de la vérification ou de la création du bucket : {e}")
+        raise
+
+
 def combine_and_upload(input_dir, endpoint_url):
     """Combine les fichiers et les téléverse dans le bucket raw."""
     # Initialiser le client S3
-    s3_client = boto3.client('s3', endpoint_url=endpoint_url)
-    
+    s3_client = boto3.client('s3',aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),region_name=os.getenv('AWS_DEFAULT_REGION'),endpoint_url=endpoint_url)
+    create_bucket_if_not_exists(s3_client, 'raw')
     # Combiner tous les fichiers
     combined_content = []
     for split in ['train', 'test', 'validation']:

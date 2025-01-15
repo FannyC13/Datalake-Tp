@@ -4,12 +4,12 @@ import mysql.connector
 from mysql.connector import Error
 import pandas as pd
 from io import StringIO
-
+import os
 
 def get_data_from_raw(endpoint_url, bucket_name, file_name="wikitext-2-combined.txt"):
     """Récupère les données depuis le bucket raw."""
     try:
-        s3_client = boto3.client('s3', endpoint_url=endpoint_url)
+        s3_client = boto3.client('s3',aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),region_name=os.getenv('AWS_DEFAULT_REGION'),endpoint_url='http://localstack:4566')
         response = s3_client.get_object(Bucket=bucket_name, Key=file_name)
         content = response['Body'].read().decode('utf-8')
         return content

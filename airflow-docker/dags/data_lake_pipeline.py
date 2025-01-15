@@ -33,14 +33,14 @@ extract_task = BashOperator(
 # Tâche 2: Transformation vers MySQL
 transform_task = BashOperator(
     task_id='preprocess_to_staging',
-    bash_command='python /opt/airflow/scripts/preprocess_to_staging.py --bucket_raw raw --db_host mysql --db_user root --db_password root --endpoint-url http://localstack:4566 --db_port 3307',
+    bash_command='python /opt/airflow/scripts/preprocess_to_staging.py --bucket_raw raw --db_host mysql --db_user root --db_password root --endpoint-url http://localstack:4566 --db_port 3306',
     dag=dag,
 )
 
 # Tâche 3: Chargement vers MongoDB
 load_task = BashOperator(
     task_id='process_to_curated',
-    bash_command='python /opt/airflow/scripts/process_to_curated.py --mysql_host mysql --mysql_user root --mysql_password root --mongo_uri mongodb://mongodb:27017/ --mysql_port 3307',
+    bash_command='python /opt/airflow/scripts/process_to_curated.py --mysql_host mysql --mysql_user root --mysql_password root --mongo_uri mongodb://mongodb:27017/ --mysql_port 3306',
     dag=dag,
 )
 
